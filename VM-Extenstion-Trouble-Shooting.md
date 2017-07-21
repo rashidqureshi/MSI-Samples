@@ -1,5 +1,5 @@
 Trying to run the MSI VM Extension on a VM and running into issues? Check below to see if your issue is listed and what can fix it. 
-We also monitor //stackoverflow tag azuremsi, check there to see if someone else has run into your issue
+We also monitor ``//stackoverflow tag azuremsi``, check there to see if someone else has run into your issue
 
 ## VM Extension deployment failing with error code 1009
 ### Issue: The following is seen during MSI VM Extension deployment:
