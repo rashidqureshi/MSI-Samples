@@ -98,4 +98,4 @@ do
     }
 while(!$success)
 
-New-AzureRmResourceGroup -Name "RG01" -Location "South Central US"
+New-AzureRmResourceGroup -Name "ExampleResourceGroup" -Location "South Central US"
