@@ -48,3 +48,52 @@ We also monitor //stackoverflow tag azuremsi, check there to see if someone else
 ```
 
 **Resolution 3:** Same as Resolution 2, ensure settings and port are defined.
+
+## VM Extension does not use the port that was configured in the settings
+### Issue: A port was specified in the template for the VM Extension and, once deployed, the VM Extension is not using that port.
+**Root Cause:** The VM Extension will fail to parse the settings if "protectedSettings" is specified.  
+**Resolution:** Remove "protectedSettings" from the template. For example, given:
+```
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(parameters('vmName'),'/ManagedIdentityExtensionForWindows')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForWindows",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 51234
+            },
+            "protectedSettings": { }
+        }
+    }
+```
+
+Remove the "protectedSettings" property:
+```
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(parameters('vmName'),'/ManagedIdentityExtensionForWindows')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForWindows",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 51234
+            }
+        }
+    }
+```
+
