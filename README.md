@@ -5,7 +5,7 @@ The Managed Service Identity scenarios enables an Azure VM to autonomously, usin
 The samples included here show following:
 1. Deploy an Azure VM with managed identity
 2. Authorize the VM's identity for access to ARM resources
-3. Get a token using the managed identit
+3. Get a token using the managed identity
 4. Call the control plane (ARM) using the token to perform management operations upon resources within Azure
 
 The Managed Service Identity infrastructure is presently deployed in all public Azure regions. To use this infrastructure your VM will need to be created in one of the public regions. 
