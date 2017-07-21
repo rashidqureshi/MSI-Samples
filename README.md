@@ -82,6 +82,7 @@ Read from http://localhost:50343/oauth2/token to fetch AAD token. Following show
     }
 ```
 ## Call the control plane (ARM) using the token to perform management operations upon resources within Azure
-Using PS to perform GET/PUT REST operations upon the ARM Resource Group ( [as documented here](http://google.com) ):
+Using PS to perform GET/PUT REST operations upon the ARM Resource Group ([as documented here](https://docs.microsoft.com/en-us/rest/api/)):
+
 
 
