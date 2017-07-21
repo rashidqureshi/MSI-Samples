@@ -10,7 +10,7 @@ The samples included here provide the capability to:
 The Managed Service Identity infrastructure is presently deployed in all public Azure regions. To use this infrastructure your VM will need to be created in one of the public regions. 
 
 # Deploy VM with managed identity
-Step 1: Add MSI Extension to the VM at deployment time as a dependency within your ARM template:
+Step 1: Add idenity attribute and MSI Extension to the VM at deployment time as a dependency within your ARM template:
 ```
     {
         "apiVersion": "2015-06-15",
@@ -43,4 +43,14 @@ Step 1: Add MSI Extension to the VM at deployment time as a dependency within yo
             "protectedSettings": {}
         }
     } 
+```
+•	The default port is 50343.  You can configure a different port at deployment time within the Properties section above:
+```
+        "properties": {
+           "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForLinux",
+           "autoUpgradeMinorVersion": true,
+           "settings": {
+                "port": 50342
+          },
 ```
