@@ -15,12 +15,12 @@ No, currently there is no support for multi-tenant scenarios with MSI identities
   •	New-AzureRmResourceGroupDeployment -ResourceGroupName <yourResourceGoup> -TemplateFile <yourTemplateFile>
 
 ## How can I remove the MSI VM Extension from a VM?
-Note that you can only remove the VM Extension itself. You cannot remove the identity associated with the VM without deleting the VM entirely.
-  •	Windows: Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForWindows
+Note that you can only remove the VM Extension itself. You cannot remove the identity associated with the VM without deleting the VM entirely.  
+  •	Windows: Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForWindows  
   •	Linux: Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForLinux
 
 ## Known issues:
-1351242 VM Extension fails to install if settings aren't specified or don't include port
-1351249 VM Extension fails with unhelpful logs and error if VM doesn't have an identity
+1351242 VM Extension fails to install if settings aren't specified or don't include port  
+1351249 VM Extension fails with unhelpful logs and error if VM doesn't have an identity  
 1351144 VM Extension will fail to parse settings if protectedSettings is specified
 
