@@ -84,5 +84,15 @@ Read from http://localhost:50343/oauth2/token to fetch AAD token. Following show
 ## Call the control plane (ARM) using the token to perform management operations upon resources within Azure
 Using PS to perform GET/PUT REST operations upon the ARM Resource Group ([as documented here](https://docs.microsoft.com/en-us/rest/api/)):
 
+```
+    PUT /subscriptions/<SubID>/resourcegroups/ExampleResourceGroup?api-version=2016-02-01  HTTP/1.1
+    Authorization: Bearer <bearer-token from MSI localhost fetch>
+    Content-Length: 29
+    Content-Type: application/json
+    Host: management.azure.com
 
+    {
+      "location": "West US"
+    }
+```
 
