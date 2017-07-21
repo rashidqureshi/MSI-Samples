@@ -1,5 +1,5 @@
 Trying to run the MSI VM Extension on a VM and running into questions? Check below to see if your question is listed. We also monitor 
-`//stackoverflow tag azuremsi`, check there to see if someone else has run into your question.
+``//stackoverflow tag azuremsi``, check there to see if someone else has run into your question.
 
 ## How can I get ObjectId/TenantId/ClientId/AppId for the identity used by the MSI VM Extension?
 The VM Extension does not currently surface this information in a supported way. We are looking into adding this functionality.
