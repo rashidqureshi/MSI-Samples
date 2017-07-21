@@ -10,7 +10,8 @@ The Managed Service Identity infrastructure is presently deployed in all public 
 
 # Deploy VM with managed identity
 Step 1: Add MSI Extension to the VM at deployment time as a dependency within your ARM template:
-| {
+```
+     { 
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
             "apiVersion": "2016-03-30",
@@ -29,5 +30,5 @@ Step 1: Add MSI Extension to the VM at deployment time as a dependency within yo
                 },
                 "protectedSettings": {}
             }
-        } |
-
+        } 
+```
