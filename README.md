@@ -12,33 +12,35 @@ The Managed Service Identity infrastructure is presently deployed in all public 
 # Deploy VM with managed identity
 Step 1: Add MSI Extension to the VM at deployment time as a dependency within your ARM template:
 ```
-{
-"apiVersion": "2015-06-15",
-"type": "Microsoft.Compute/virtualMachines",
-...
-"identity": { 
-    "type": "systemAssigned"
-},
+    {
+        "apiVersion": "2015-06-15",
+        "type": "Microsoft.Compute/virtualMachines",
+        ...
+        "identity": { 
+            "type": "systemAssigned"
+        },
+        ...
+    }
 ```
 ```
-     { 
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
-            "apiVersion": "2016-03-30",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]",
-                "[concat('Microsoft.Authorization/roleAssignments/', variables('roleAssignmentId'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.ManagedIdentity",
-                "type": "ManagedIdentityExtensionForLinux",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "port": 50343
-                },
-                "protectedSettings": {}
-            }
-        } 
+    { 
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+        "apiVersion": "2016-03-30",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]",
+            "[concat('Microsoft.Authorization/roleAssignments/', variables('roleAssignmentId'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForLinux",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 50343
+            },
+            "protectedSettings": {}
+        }
+    } 
 ```
