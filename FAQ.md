@@ -19,8 +19,16 @@ Note that you can only remove the VM Extension itself. You cannot remove the ide
   •	Windows: Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForWindows  
   •	Linux: Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForLinux
 
-## Known issues:
-1351242 VM Extension fails to install if settings aren't specified or don't include port  
-1351249 VM Extension fails with unhelpful logs and error if VM doesn't have an identity  
-1351144 VM Extension will fail to parse settings if protectedSettings is specified
+## How to reinstall the VM Extension
+### Uninstall:
+ ```
+ Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForWindows
+ ```
+### Re-install:
+```
+•	$Settings = @{ "port" = 50342 } # or other port if a different one was used during initial deployment  
+•	Set-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -Location "<azureRegion>" -VMName <vmName> -Name ManagedIdentityExtensionForWindows -Type ManagedIdentityExtensionForWindows -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $Settings
+```
+Note that the VM extension is ManagedIdentityExtensionForLinux on Linux VMs
+
 
