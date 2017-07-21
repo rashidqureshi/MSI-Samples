@@ -9,10 +9,9 @@ No, currently there is no support for multi-tenant scenarios with MSI identities
 
 ## How can I install the MSI VM Extension on an existing VM?
 1) Update the template to include MSI specific fields and resources  
-  •	identity must be declared on the VM resource
+  •	identity must be declared on the VM resource  
   •	The MSI VM extension resource must be added
-2) Perform an incremental update (https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)
-
+2) Perform an incremental update (https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)  
   •	New-AzureRmResourceGroupDeployment -ResourceGroupName <yourResourceGoup> -TemplateFile <yourTemplateFile>
 
 ## How can I remove the MSI VM Extension from a VM?
