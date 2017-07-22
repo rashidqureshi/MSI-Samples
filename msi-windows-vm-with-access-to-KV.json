@@ -25,7 +25,7 @@
         "subnetPrefix": "10.0.0.0/24",
         "publicIPAddressName": "myPublicIP",
         "publicIPAddressType": "Dynamic",
-        "vmName": "ryjonesvm0",
+        "vmName": "windowsvm0",
         "vmSize": "Standard_D2_v2",
         "virtualNetworkName": "MyVNET",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
