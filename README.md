@@ -95,19 +95,19 @@ Using PS to perform GET/PUT REST operations upon the ARM Resource Group ([as doc
     }
 ```
 
-## How can I install the MSI VM Extension on an existing VM?
+## Install the MSI VM Extension on an existing VM
 1) Update the template to include MSI specific fields and resources  
   •	identity must be declared on the VM resource  
   •	The MSI VM extension resource must be added
 2) Perform an incremental update (https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)  
   •	New-AzureRmResourceGroupDeployment -ResourceGroupName <yourResourceGoup> -TemplateFile <yourTemplateFile>
 
-## How can I remove the MSI VM Extension from a VM?
+## Remove the MSI VM Extension from a VM
 Note that you can only remove the VM Extension itself. You cannot remove the identity associated with the VM without deleting the VM entirely.  
   •	Windows: Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForWindows  
   •	Linux: Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForLinux
 
-## How to reinstall the VM Extension
+## Reinstall the VM Extension
 ### Uninstall:
  ```
  Remove-AzureRmVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name ManagedIdentityExtensionForWindows
