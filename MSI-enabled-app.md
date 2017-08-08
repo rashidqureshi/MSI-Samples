@@ -22,4 +22,5 @@ When you are ready, follow the procedures below
       ``` New-AzureRmResourceGroup -Name myRG -Location "West US"```          
       ``` New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myRG -TemplateFile <template file.json> ```
 3. Assign VM identity read access to the resource group in which the VM is created  
-      ``` <PS> cmd ```
+      ``` (Get-AzureRMVM -ResourceGroupName myRG -Name windowsvm0).identity.principalid ```  
+      ``` New-AzureRmRoleAssignment -ObjectId <from above cmd> -RoleDefinitionName Reader -Scope /subscriptions/<subscriptionID>/resourceGroups/myRG ```
