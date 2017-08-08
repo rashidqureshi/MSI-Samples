@@ -1,4 +1,3 @@
-
 # Introduction
 Azure Managed Identity service enables Azure resources to gain an identity represented by AAD service principal. This enables a source resource to access other Azure target resources by presenting an AAD token. The token represents the AAD service principal to the target resource which it would be able to authenticate with AAD. 
 
@@ -20,8 +19,7 @@ When you are ready, follow the procedures below
 1. Sign in to the Azure using powershell  
       ``` Login-AzureRMAccount ```
 2. Deploy the VM template using the PS cmd  
-      ``` New-AzureRmResourceGroup -Name myRG -Location "West US"  
-      
+      ``` New-AzureRmResourceGroup -Name myRG -Location "West US"```          
       ``` New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName myRG -TemplateFile <template file.json> ```
 3. Assign VM identity read access to the resource group in which the VM is created  
       ``` <PS> cmd ```
