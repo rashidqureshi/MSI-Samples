@@ -19,8 +19,8 @@ When you are ready, follow the procedures below
 1. Sign in to the Azure using powershell  
       ``` Login-AzureRMAccount ```
 2. Deploy the VM template using the PS cmd  
-      a) ``` New-AzureRmResourceGroup -Name myRG -Location "West US"```          
-      b) ``` New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myRG -TemplateFile <template file.json> ```
+      a. ``` New-AzureRmResourceGroup -Name myRG -Location "West US"```          
+      b. ``` New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myRG -TemplateFile <template file.json> ```
 3. Assign VM identity read access to the resource group in which the VM is created  
-      a) ``` (Get-AzureRMVM -ResourceGroupName myRG -Name windowsvm0).identity.principalid ```  
-      b) ``` New-AzureRmRoleAssignment -ObjectId <from above cmd> -RoleDefinitionName Reader -Scope /subscriptions/<subscriptionID>/resourceGroups/myRG ```
+      a. ``` (Get-AzureRMVM -ResourceGroupName myRG -Name windowsvm0).identity.principalid ```  
+      b. ``` New-AzureRmRoleAssignment -ObjectId <from above cmd> -RoleDefinitionName Reader -Scope /subscriptions/<subscriptionID>/resourceGroups/myRG ```
