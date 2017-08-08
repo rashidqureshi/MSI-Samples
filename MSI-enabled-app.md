@@ -17,7 +17,7 @@ When you are ready, follow the procedures below
 
 ## Step 1: Deploy the VM using the template
 1. Sign in to the Azure using powershell  
-      ``` Login-AzureRMAccount ```
+      a. ``` Login-AzureRMAccount ```
 2. Deploy the VM template using the PS cmd  
       a. ``` New-AzureRmResourceGroup -Name myRG -Location "West US"```          
       b. ``` New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myRG -TemplateFile <template file.json> ```
