@@ -26,7 +26,7 @@ When you are ready, follow the procedures below
       b. ``` New-AzureRmRoleAssignment -ObjectId <from above cmd> -RoleDefinitionName Reader -Scope /subscriptions/<subscriptionID>/resourceGroups/myRG ```
 
 ## Step 2: Find the tenantId for the subscription where the VM is deployed
-``` (Get-AzureRmSubscription -SubscriptionID 04045c26-6013-4b2f-89b7-7e6620e4cefc).TenantId ```
+``` (Get-AzureRmSubscription -SubscriptionID <subscription id>).TenantId ```
 
 ## Step 3: Set up the app to use Azure resource manager SDK
 To begin, add the Azure resource manager sdk NuGet package to the project by using the Package Manager Console.  
