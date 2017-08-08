@@ -12,5 +12,8 @@ This article shows you how to use the Managed service identity extension to:
 
 ## Before you get started:
 1. Download the complete sample from [here](https://github.com/rashidqureshi/MSIApp/tree/master/MSISamples).
-2. Download the template for deploying a VM with MSI from [here](https://github.com/rashidqureshi/MSI-Samples/blob/Add-Code-Sample/msi-windows-vm)
+2. Download the template for deploying a VM with MSI from [here](https://github.com/rashidqureshi/MSI-Samples/blob/Add-Code-Sample/msi-windows-vm).
 
+When you are ready, follow the procedures below
+
+## Step 1: Deploy the VM using the template
