@@ -20,7 +20,7 @@ When you are ready, follow the procedures below
 1. Sign in to the Azure using powershell  
       ``` Login-AzureRMAccount ```
 2. Deploy the VM template using the PS cmd  
-      ``` New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile https://github.com/rashidqureshi/MSI-Samples/blob/Add-Code-Sample/msi-windows-vm.json -storageAccountType Standard_GRS ```
-3. Assign VM identity read access to a resource group in your subscription  
+      ``` New-AzureRmResourceGroup -Name myRG -Location "West US"
+      ``` New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName myRG -TemplateFile <template file.json> ```
+3. Assign VM identity read access to the resource group in which the VM is created  
       ``` <PS> cmd ```
