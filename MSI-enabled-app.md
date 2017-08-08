@@ -17,9 +17,9 @@ This article shows you how to use the Managed service identity extension to:
 When you are ready, follow the procedures below
 
 ## Step 1: Deploy the VM using the template
-a.	Sign in to the Azure using powershell  
-      Login-AzureRMAccount
-b.	Deploy the VM template using the PS cmd  
-      PS cmd
-c.	Assign VM identity read access to a resource group in your subscription  
-      <PS> cmd
+1. Sign in to the Azure using powershell  
+      ``` Login-AzureRMAccount ```
+2. Deploy the VM template using the PS cmd  
+      ``` PS cmd ```
+3. Assign VM identity read access to a resource group in your subscription  
+      ``` <PS> cmd ```
