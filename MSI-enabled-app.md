@@ -39,7 +39,7 @@ Copy the project folder with binaries to the VM created in Step 1
 ## Step 4: Get the bearer token from the MSI extension
 The code sample makes a local REST call to the MSI extension on the VM at port 50342. The REST call expects following information:
 1. Authority URI = https://login.microsoftonline.com/<tenantID>
-2. Resource URI = https://management.azure.com/
+2. Resource URI = https://management.azure.com/  
 Resource URI specifies the target resource you want to access using the token.
 
 ```
