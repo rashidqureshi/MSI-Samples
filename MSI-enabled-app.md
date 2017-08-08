@@ -86,3 +86,4 @@ The code below shows how to instantiate the Azure Resource Manager SDK with the 
 13.	…
 14.	}  
 ```
+Running the code will print myRG as the output
