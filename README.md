@@ -94,6 +94,13 @@ Using PS to perform GET/PUT REST operations upon the ARM Resource Group ([as doc
       "location": "West US"
     }
 ```
+# What's next
+Additional content related to help using MSI can be here:
+1. VM MSI template with access to ARM [here](https://github.com/rashidqureshi/MSI-Samples/blob/master/msi-linux-vm-with-access-to-ARM.json)
+2. VM MSI template with access to KeyVault [here](https://github.com/rashidqureshi/MSI-Samples/blob/master/msi-windows-vm-with-access-to-KV.json)
+3. C# app using MSI to call Azure resource manager SDK [here]()
+
+# Appendix
 
 ## Install the MSI VM Extension on an existing VM
 1) Update the template to include MSI specific fields and resources  
