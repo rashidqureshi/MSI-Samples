@@ -99,7 +99,7 @@ Additional content related to using MSI can be found here:
 1. VM MSI template with access to ARM [here](https://github.com/rashidqureshi/MSI-Samples/blob/master/msi-linux-vm-with-access-to-ARM.json)
 2. VM MSI template with access to KeyVault [here](https://github.com/rashidqureshi/MSI-Samples/blob/master/msi-windows-vm-with-access-to-KV.json)
 3. C# app using MSI to call Azure resource manager SDK [here](https://github.com/rashidqureshi/MSI-Samples/blob/master/MSI-enabled-app.md)
-
+ 
 # Appendix
 
 ## Install the MSI VM Extension on an existing VM
