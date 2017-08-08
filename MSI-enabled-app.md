@@ -20,6 +20,6 @@ When you are ready, follow the procedures below
       ``` Login-AzureRMAccount ```
 2. Deploy the VM template using the PS cmd  
       ``` New-AzureRmResourceGroup -Name myRG -Location "West US"```          
-      ``` New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName myRG -TemplateFile <template file.json> ```
+      ``` New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myRG -TemplateFile <template file.json> ```
 3. Assign VM identity read access to the resource group in which the VM is created  
       ``` <PS> cmd ```
