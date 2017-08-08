@@ -29,7 +29,7 @@ When you are ready, follow the procedures below
 ``` (Get-AzureRmSubscription -SubscriptionID 04045c26-6013-4b2f-89b7-7e6620e4cefc).TenantId ```
 
 ## Step 3: Set up the app to use Azure resource manager SDK
-To begin, add the Azure resource manager sdk NuGet package to the project by using the Package Manager Console.
+To begin, add the Azure resource manager sdk NuGet package to the project by using the Package Manager Console.  
  ``` PM> Install-Package Microsoft.Azure.Management.ResourceManager.Fluent ```
 
 Compile the app to make sure there are no issues
