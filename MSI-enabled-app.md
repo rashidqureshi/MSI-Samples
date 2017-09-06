@@ -52,7 +52,7 @@ The code sample makes a local REST call to the MSI extension on the VM at port 5
 13.	    var jss = new JavaScriptSerializer();  
 14.	    var dict = jss.Deserialize <Dictionary<string, string>> (objReader.ReadLine());  
 15.	
-16.	    Write("Access token for ARM");  
+16.	    Write("Access token for ARM");   
 17.	    Write(dict["access_token"]);
 18.	 …… 
 19.	}  
