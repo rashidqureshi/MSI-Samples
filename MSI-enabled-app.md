@@ -39,23 +39,21 @@ The code sample makes a local REST call to the MSI extension on the VM at port 5
 ```
 1.	public static void RunSample(string port, string subscriptionId) {  
 2.	      
-3.	
-4.	    string address = 
-5.	string.Format("http://localhost:{0}/oauth2/token?resource={1}&authority={2}", port, 
-6.	Uri.EscapeDataString("https://management.azure.com/") 
-7.	);
-8.	  
-9.	    HttpWebRequest request = (HttpWebRequest) WebRequest.Create(address);  
-10.         request.Headers.Add("Metadata","true"); 
-11.	    StreamReader objReader = new StreamReader(request.GetResponse().GetResponseStream());  
-12.	
-13.	    var jss = new JavaScriptSerializer();  
-14.	    var dict = jss.Deserialize <Dictionary<string, string>> (objReader.ReadLine());  
-15.	
-16.	    Write("Access token for ARM");   
-17.	    Write(dict["access_token"]);
-18.	 …… 
-19.	}  
+3.	    string address = 
+4.	      string.Format("http://localhost:{0}/oauth2/token?resource={1}", port, 
+5.	      Uri.EscapeDataString("https://management.azure.com/"));
+6.	  
+7.	    HttpWebRequest request = (HttpWebRequest) WebRequest.Create(address);  
+8.         request.Headers.Add("Metadata","true"); 
+9.	    StreamReader objReader = new StreamReader(request.GetResponse().GetResponseStream());  
+10.	
+11.	    var jss = new JavaScriptSerializer();  
+12.	    var dict = jss.Deserialize <Dictionary<string, string>> (objReader.ReadLine());  
+13.	
+14.	    Write("Access token for ARM");   
+15.	    Write(dict["access_token"]);
+16.	 …… 
+17.	}  
 
 ```
 
