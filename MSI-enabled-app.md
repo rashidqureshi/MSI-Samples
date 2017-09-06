@@ -25,10 +25,7 @@ When you are ready, follow the procedures below
       a. ``` (Get-AzureRMVM -ResourceGroupName myRG -Name windowsvm0).identity.principalid ```  
       b. ``` New-AzureRmRoleAssignment -ObjectId <from above cmd> -RoleDefinitionName Reader -Scope /subscriptions/<subscriptionID>/resourceGroups/myRG ```
 
-## Step 2: Find the tenantId for the subscription where the VM is deployed
-``` (Get-AzureRmSubscription -SubscriptionID <subscription id>).TenantId ```
-
-## Step 3: Set up the app to use Azure resource manager SDK
+## Step 2: Set up the app to use Azure resource manager SDK
 To begin, add the Azure resource manager sdk NuGet package to the project by using the Package Manager Console.  
  ``` PM> Install-Package Microsoft.Azure.Management.ResourceManager.Fluent ```
 
@@ -36,35 +33,33 @@ Compile the app to make sure there are no issues
 
 Copy the project folder with binaries to the VM created in Step 1
 
-## Step 4: Get the bearer token from the MSI extension
-The code sample makes a local REST call to the MSI extension on the VM at port 50342. The REST call expects following information:
-1. Authority URI = https://login.microsoftonline.com/<tenantID>
-2. Resource URI = https://management.azure.com/  
-Resource URI specifies the target resource you want to access using the token.
+## Step 3: Get the bearer token from the MSI extension
+The code sample makes a local REST call to the MSI extension on the VM at port 50342. The REST call expects the resource URI. The resource URI specifies the target resource you want to access using the token. In the example the resource URI is for ARM (Azure Resource Manager): https://management.azure.com/. Furthermore the client need to specify a static header in the request "Metadata:true"
 
 ```
-1.	public static void RunSample(string tenantId, string port, string subscriptionId) {  
-2.	    string authority = "https://login.microsoftonline.com/" + tenantId;  
+1.	public static void RunSample(string port, string subscriptionId) {  
+2.	      
 3.	
 4.	    string address = 
 5.	string.Format("http://localhost:{0}/oauth2/token?resource={1}&authority={2}", port, 
-6.	Uri.EscapeDataString("https://management.azure.com/"), 
-7.	Uri.EscapeDataString(authority));
+6.	Uri.EscapeDataString("https://management.azure.com/") 
+7.	);
 8.	  
 9.	    HttpWebRequest request = (HttpWebRequest) WebRequest.Create(address);  
-10.	    StreamReader objReader = new StreamReader(request.GetResponse().GetResponseStream());  
-11.	
-12.	    var jss = new JavaScriptSerializer();  
-13.	    var dict = jss.Deserialize <Dictionary<string, string>> (objReader.ReadLine());  
-14.	
-15.	    Write("Access token for ARM");  
-16.	    Write(dict["access_token"]);
-17.	 …… 
-18.	}  
+10.       request.Headers.Add("Metadata","true"); 
+11.	    StreamReader objReader = new StreamReader(request.GetResponse().GetResponseStream());  
+12.	
+13.	    var jss = new JavaScriptSerializer();  
+14.	    var dict = jss.Deserialize <Dictionary<string, string>> (objReader.ReadLine());  
+15.	
+16.	    Write("Access token for ARM");  
+17.	    Write(dict["access_token"]);
+18.	 …… 
+19.	}  
 
 ```
 
-## Step 5 Instantiate the Azure resource manager SDK to list resources
+## Step 4 Instantiate the Azure resource manager SDK to list resources
 In the previous step the code snippet shows how to get an access token from MSI extension to access Azure Resource Manager resource. 
 
 The code below shows how to instantiate the Azure Resource Manager SDK with the token and list the resource groups the VM has been granted access to read.
