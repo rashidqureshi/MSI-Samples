@@ -71,24 +71,11 @@ Add identity attribute and MSI Extension to the VM at deployment time as a depen
     },
 ```
 ## Get a token using the managed identity
-Read from http://localhost:50343/oauth2/token to fetch AAD token. 
+Read from http://localhost:50343/oauth2/token to fetch AAD token. Here's an example of fetching the token using jq for ARM resource.
 ```
- curl --data resource=https://management.azure.com http://localhost:50343/oauth2/token -H Metadata:true
-      
+token=$(curl --data "resource=https://management.azure.com" http://localhost:50343/oauth2/token -H Metadata:true | jq -r .access_token)
 ```
 
-Here's an example for shell/script. You can easily fetch the token using jq. The AAD Tenant ID can be found by looking in the resultant template for your deployed VM.
-<pre>
-# From deployed vm template
-"identity": {
-    "principalId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    <b>"tenantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",</b>
-    "type": "SystemAssigned"
-},
-
-# Command line
-token=$(curl --data "authority=https://login.microsoftonline.com/TENANTID&&resource=https://vault.azure.net" http://localhost:50343/oauth2/token <b>| jq -r .access_token </b>)
-</pre>
 ## Call the control plane (ARM) using the token to perform management operations upon resources within Azure
 Using PS to perform GET/PUT REST operations upon the ARM Resource Group ([as documented here](https://docs.microsoft.com/en-us/rest/api/)):
 
