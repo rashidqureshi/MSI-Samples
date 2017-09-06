@@ -166,4 +166,5 @@
             "value": "[concat('(Invoke-RestMethod -Method GET -Uri \"https://', variables('vaultName'), '.vault.azure.net/secrets/mySecret?api-version=2016-10-01\" -Headers @{ \"Authorization\" = \"Bearer $((ConvertFrom-Json -InputObject (Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method POST -Headers @{Metadata=\"true\"} -Body @{resource = \"https://vault.azure.net\"} -UseBasicParsing).Content).access_token)\" }).Value','')]"
         }
     }
+
 }
