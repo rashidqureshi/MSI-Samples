@@ -46,7 +46,7 @@ The code sample makes a local REST call to the MSI extension on the VM at port 5
 7.	);
 8.	  
 9.	    HttpWebRequest request = (HttpWebRequest) WebRequest.Create(address);  
-10.       request.Headers.Add("Metadata","true"); 
+10.         request.Headers.Add("Metadata","true"); 
 11.	    StreamReader objReader = new StreamReader(request.GetResponse().GetResponseStream());  
 12.	
 13.	    var jss = new JavaScriptSerializer();  
