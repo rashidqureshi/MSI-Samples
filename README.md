@@ -71,7 +71,7 @@ Add identity attribute and MSI Extension to the VM at deployment time as a depen
     },
 ```
 ## Get a token using the managed identity
-Read from http://localhost:50343/oauth2/token to fetch AAD token for ARM resource. 
+Read from http://localhost:50343/oauth2/token to fetch AAD token. 
 ```
  curl --data resource=https://management.azure.com http://localhost:50343/oauth2/token -H Metadata:true
       
