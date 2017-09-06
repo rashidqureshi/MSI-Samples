@@ -34,7 +34,7 @@ Compile the app to make sure there are no issues
 Copy the project folder with binaries to the VM created in Step 1
 
 ## Step 3: Get the bearer token from the MSI extension
-The code sample makes a local REST call to the MSI extension on the VM at port 50342. The REST call expects the resource URI. The resource URI specifies the target resource you want to access using the token. In the example the resource URI is for ARM (Azure Resource Manager): https://management.azure.com/. Furthermore the client need to specify a static header in the request "Metadata:true"
+The code sample makes a local REST call to the MSI extension on the VM at port 50342. The REST call expects the resource URI. The resource URI specifies the target resource you want to access using the token. In the example the resource URI is for ARM (Azure Resource Manager): https://management.azure.com/. Furthermore the client needs to specify a static header in the request "Metadata:true"
 
 ```
 1.	public static void RunSample(string port, string subscriptionId) {  
