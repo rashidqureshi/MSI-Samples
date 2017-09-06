@@ -71,14 +71,10 @@ Add identity attribute and MSI Extension to the VM at deployment time as a depen
     },
 ```
 ## Get a token using the managed identity
-Read from http://localhost:50343/oauth2/token to fetch AAD token. Following shows how it can be done in the template
+Read from http://localhost:50343/oauth2/token to fetch AAD token for ARM resource. 
 ```
- "outputs": {
-        "commandToGetAToken":{
-            "type": "string",
-            "value": "[concat('curl --data \"authority=https://login.microsoftonline.com/', reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId, '&&resource=https://management.azure.com\" http://localhost:50343/oauth2/token')]"
-        }
-    }
+ curl --data resource=https://management.azure.com http://localhost:50343/oauth2/token -H Metadata:true
+      
 ```
 
 Here's an example for shell/script. You can easily fetch the token using jq. The AAD Tenant ID can be found by looking in the resultant template for your deployed VM.
