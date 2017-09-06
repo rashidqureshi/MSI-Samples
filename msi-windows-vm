@@ -159,10 +159,11 @@
             }
         }
     ],
+    
     "outputs": {
         "PowerShellCommandToGetKeyVaultToken": {
             "type": "string",
-            "value": "[concat('(Invoke-RestMethod -Method GET -Uri \"https://', variables('vaultName'), '.vault.azure.net/secrets/mySecret?api-version=2016-10-01\" -Headers @{ \"Authorization\" = \"Bearer $((ConvertFrom-Json -InputObject (Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method POST -Body @{authority = \"https://login.microsoftonline.com/', reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId, '\"; resource = \"https://vault.azure.net\"} -UseBasicParsing).Content).access_token)\" }).Value','')]"
+            "value": "[concat('(Invoke-RestMethod -Method GET -Uri \"https://', variables('vaultName'), '.vault.azure.net/secrets/mySecret?api-version=2016-10-01\" -Headers @{ \"Authorization\" = \"Bearer $((ConvertFrom-Json -InputObject (Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method POST -Headers @{Metadata=\"true\"} -Body @{resource = \"https://vault.azure.net\"} -UseBasicParsing).Content).access_token)\" }).Value','')]"
         }
     }
 }
