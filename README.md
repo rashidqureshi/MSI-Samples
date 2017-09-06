@@ -73,7 +73,7 @@ Add identity attribute and MSI Extension to the VM at deployment time as a depen
 ## Get a token using the managed identity
 Read from http://localhost:50343/oauth2/token to fetch AAD token. Here's an example of fetching the token using jq for ARM resource.
 ```
-token=$(curl --data "resource=https://management.azure.com" http://localhost:50343/oauth2/token -H Metadata:true | jq -r .access_token)
+curl --data "resource=https://management.azure.com" http://localhost:50343/oauth2/token -H Metadata:true | jq -r .access_token
 ```
 
 ## Call the control plane (ARM) using the token to perform management operations upon resources within Azure
