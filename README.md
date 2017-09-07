@@ -39,19 +39,19 @@ Add identity attribute and MSI Extension to the VM at deployment time as a depen
             "typeHandlerVersion": "1.0",
             "autoUpgradeMinorVersion": true,
             "settings": {
-                "port": 50343
+                "port": 50342
             },
             "protectedSettings": {}
         }
     } 
 ```
-•	The default port is 50343.  You can configure a different port at deployment time within the Properties section above:
+•	The default port is 50342.  You can configure a different port at deployment time within the Properties section above:
 ```
         "properties": {
            "publisher": "Microsoft.ManagedIdentity",
            "autoUpgradeMinorVersion": true,
            "settings": {
-                "port": 50342
+                "port": 50343
           },
 ```
 ## Authorize the VM's identity for access to ARM resources
